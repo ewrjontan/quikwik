@@ -1,2 +1,0 @@
-# quikwik
-Wikipedia Search
