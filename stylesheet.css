@@ -1,0 +1,117 @@
+body{
+  background-color: #c2d6d6;
+  font-family:Garamond,'Apple Garamond','Lucida Sans Unicode';
+}
+
+a:link {
+    text-decoration: none;
+}
+
+a:visited {
+    text-decoration: none;
+}
+
+#heading{
+  font-size: 5em;
+  text-align: center;
+  color: black;
+  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+}
+
+.main-container{
+  
+}
+
+.main-container.flex{
+  display: flex;
+  align-items: baseline;
+  margin-top: -50px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: none;
+  width: 65%;
+  justify-content: space-around;
+}
+
+#search-input-container{
+  width: 500px;
+  height: 50px;
+  background-color: white;
+  border-radius: 50px;
+  margin: 50px auto 0 auto;
+}
+
+#search-input{
+  background-color: transparent;
+  width: 90%;
+  margin-left: 25px;
+  margin-top: 5px;
+  text-align: left;
+  border: none;
+  /*border-bottom: 1px solid black;*/
+  outline: none;
+  font-size: 2.25em;
+}
+
+#clear-input{
+  display: none;
+  position: relative;
+  top: -45px;
+  left: 510px;
+  color: white;
+  font-size: 2em;
+  cursor: pointer;
+}
+
+#button-container{
+  display: flex;
+  margin: 30px auto 0 auto;
+  width: 500px;
+  background-color: none;
+  justify-content: space-around;
+}
+
+.button{
+  width: 125px;
+  height: 30px;
+  background-color: none;
+  text-align: center;
+  border-radius: 25px;
+  padding-top: 10px;
+  color: white;
+  border: 1px solid white;
+  cursor:pointer;
+}
+
+#submit-button{
+  display: inline;
+}
+
+.list-item{
+  background-color: white;
+  margin-bottom: 10px;
+  border-radius: 15px;
+  width: 75%;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: inset 0 0 5px 3px #888888;
+}
+
+
+
+.item-name{
+  color: black;
+  padding-left: 20px;
+  
+}
+
+.item-description{
+  color: #4d94ff;
+  font-size: 16px;
+  padding-bottom: 10px;
+  padding-right: 5px;
+}
+
+#no-results{
+  
+}
