@@ -1,4 +1,12 @@
 
+//get window width
+var $portrait = window.matchMedia("(orientation: portrait)").matches;
+var $landscape = window.matchMedia("(orientation: landscape)").matches; 
+var $deviceWidth = $(window).width();
+var $deviceHeight = $(window).height();
+var $searched = false;
+
+
 //wiki json object constructor
 function wikiObject(name, description, link){
   this.name = name;
@@ -32,7 +40,11 @@ function sendRequest(url, callback){
         callback(responseData);
       }else{
         //console.log("No results");
-        $("#list-container").append("<h1 id='no-results'>No Results Found</h1>");
+        $("#list-container").append("<h1 id='no-results'>No Results Found!</h1>");
+        if ($searched){
+          $("#no-results").css("bottom", "40%");
+        }
+        
       };
     };
   };
@@ -62,14 +74,21 @@ function appendData(arrayInput){
   //console.log("this is the array input: " + arrayInput[0].description);
  
   for (i=0; i<arrayInput.length; i++){
-    var $name = "<h1 class='item-name'>" + arrayInput[i].name; + "</h1>";
-    var $description = "<p class='item-description'>" + arrayInput[i].description + "</p>";
+    //var $name = "<h1 class='item-name'>" + arrayInput[i].name; + "</h1>";
+    //var $description = "<p class='item-description'>" + arrayInput[i].description + "</p>";
+    var $name = arrayInput[i].name;
+    var $description = arrayInput[i].description;
     var $link = arrayInput[i].link;
     
-    //$("#list-container").append("<div class='list-item'>" + $name + $description + "</div>");
     
-    $("#list-container").append("<a target= '_blank' href=" + $link + "><div class='list-item'>" + $name + $description + "</div></a>");
+    //$("#list-container").append("<a class='MainItemContainer' target= '_blank' href=" + $link + "><div class='list-item'>" + $name + $description + "</div></a></div>");
     
+    //$("#list-container").append("<a class='MainItemContainer' target= '_blank' href=" + $link + "><div class='list-item'>" + "<h1 class='item-name'>THIS IS MY ITEM NAME</h1>" + "<p class='item-description'>THIS IS MY DESCRIPTION</p>" + "</div></a></div>");
+    //$("#list-container").append("<a class='MainItemContainer' target= '_blank' href=" + $link + "><div class='list-item'>" + "<h1 class='item-name'>THIS IS MY ITEM NAME<p class='item-description'>THIS IS MY DESCRIPTION</p></h1>" + "</div></a></div>");
+
+    $("#list-container").append("<a class='MainItemContainer' target= '_blank' href=" + $link + "><div class='list-item'><h1 class='item-name'>" + $name + "</h1><p class='item-description'>" + $description + "</p></div></a></div>");
+
+
   }; 
   
   //hover for list items
@@ -88,29 +107,64 @@ function appendData(arrayInput){
 };
 
 function css_on_search(){
+  $searched = true;
   $(".main-container").addClass("flex");
-  $("#heading").css("font-size", "2em");
-  $("#button-container").css("width", "125px")
+  //$(".main-container").css("background-color", "yellow");
+
+  if ($deviceWidth<600){
+    $("#button-container").css("display", "none");
+    $("#heading").css({"font-size": "2em", "top": "25px", "width": "20%"});
+    $("#search-input-container").css("width", "80%");
+  }else{
+    $("#button-container").css("margin-top", "50px");
+    $("#heading").css({"font-size": "2em", "top": "25px", "width": "30%"});
+    $("#search-input-container").css("width", "50%");
+  }
+  //$("#button-container").css("display", "none");
+  
+
+  //$("#button-container").css("margin-top", "50px");
+  //$("#button-container").css("background-color", "red");
+  //$("#button-container").css("width", "20%");
+  //$("#submit-button").css("display", "none");
+  
+  //$("#heading").css("top", "25px");
+  //$("#heading").css("width", "20%");
+  
+
+  /*$("#heading").css("font-size", "2em");
+  $("#heading").css("top", "25px");
+  $("#heading").css("background-color", "red");
+  $("#button-container").css("width", "125px");
+  $("#button-container").css("background-color", "green");
+  $("#button-container").css("margin-top", "50px");
   $("#submit-button").css("display", "none");
+  $("#surprise-button").css("background-color", "red");
+  $("#surprise-button").css("left", "50px");*/
+  //$("#search-input-container").css("width", "50%");
 };
 
 function css_on_clear(){
+  $searched = false;
   $(".main-container").removeClass("flex");
-  $("#heading").css("font-size", "5em");
-  $("#button-container").css("width", "500px")
-  $("#submit-button").css("display", "inline");
+  $("#heading").css({"font-size": "5em", "top": "", "width": "100%"});
+  //$("#button-container").css("width", "500px")
+  $("#button-container").css("display", "flex");
+  $("#search-input-container").css("width", "95%");
+  //$("#submit-button").css("display", "inline");
+  $("#button-container").css("margin-top", "30px");
 }
 
 //jquery 
 $(document).ready(function(){
   //submit and surprise button hovers
-  $(".button").mouseenter(function(){
-    
-    $(this).css("background-color","#a3c2c2");
-  });
-  $(".button").mouseleave(function(){
-    $(this).css("background-color", "#c2d6d6");
-  });
+  $(".button").hover(
+    function(){
+      $(this).css({"background-color": "#a3c2c2", "border": "1px solid #a3c2c2"});
+    },
+    function(){
+      $(this).css({"background-color": "#c2d6d6", "border": "1px solid white"});
+    });
   
   // clear button hover
   $("#clear-input").hover(
@@ -118,7 +172,7 @@ $(document).ready(function(){
       $(this).css("color", "black");
     },
     function(){
-      $(this).css("color", "white");
+      $(this).css("color", "gray");
     });
   
   //Clear input value and input list
@@ -178,6 +232,40 @@ $(document).ready(function(){
     };
       
   });
+
+    //xxxxxxxxxxxxxxxxxx Check Initial Display xxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    //check initial orientation
+
+    console.log("Portrait: " + $portrait);
+    console.log("Landscape: " + $landscape);
+    console.log("initial device width: " + $deviceWidth);
+
+
+
+  //xxxxxxxxxxxxx Recheck device orientation and reload projects xxxxxxxxxxxxxxxxxxxxxxxx
+
+    $(window).resize(function() {
+      // This will fire each time the window is resized:
+      console.log("Window has been resized!");
+  
+      //Check device width
+      $deviceWidth = $(window).width();
+      console.log("new device width: " + $deviceWidth);
+      
+      //check new orientation
+      $portrait = window.matchMedia("(orientation: portrait)").matches;
+      $landscape = window.matchMedia("(orientation: landscape)").matches;
+      
+      console.log("New Portrait: " + $portrait);
+      console.log("New Landscape: " + $landscape);
+
+      if ($deviceWidth<600 && $searched){
+        $("#button-container").css("display", "none");
+      }else if ($deviceWidth>=600 && $searched){
+        $("#button-container").css("display", "flex");
+        $("#button-container").css("margin-top", "50px");
+      }
+    });
     
     
 });
