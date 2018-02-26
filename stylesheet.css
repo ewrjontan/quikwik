@@ -71,13 +71,17 @@ a:visited {
   background-color: transparent;
   /*background-color: red;*/
   width: 90%;
-  margin-left: 25px;
-  margin-top: 5px;
+  /*margin-left: 25px;
+  margin-top: 5px;*/
+  top:5px;
+  bottom: 5px;
+  left: 25px;
   text-align: left;
   border: none;
   /*border-bottom: 1px solid black;*/
   outline: none;
   font-size: 2.25em;
+  position: absolute;
 }
 
 #clear-input{
