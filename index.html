@@ -4,10 +4,10 @@
 		<title>QuikWik</title>	
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">	
     		<link type = 'text/css' rel = 'stylesheet' href = 'stylesheet.css'/>
-		  <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">-->
-    	<!--<script src="https://use.fontawesome.com/a037c8550a.js"></script>-->
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>	
+		  
+    	<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
     	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script> 
     	<script src="quikwik.js"></script>
   	</head>
 
@@ -15,14 +15,14 @@
 
   <body>
     <div class='main-container'>
-      <h1 id="heading">Wiki-Viewer</h1>
+      <h1 id="heading">Quik-Wik</h1>
 
       <div id="search-input-container">
         <form onsubmit="return false">
-          <input id="search-input" type="text" autocomplete="off"></input>
+          <input id="search-input" type="text" autocomplete="off" placeholder="Search"></input>
 
         </form>
-        <div id="clear-input">X</div>
+        <div id="clear-input"><i class="far fa-times-circle fa-2x"></i></div>
       </div>
 
       <div id="button-container">
@@ -34,7 +34,18 @@
       </div>
     </div>
 
-    <div id="list-container"></div>
-  
+    <div id="list-container">
+      <!--<div class='MainItemContainer'>
+
+        <a class='MainItemContainer' target= '_blank' href="http://www.google.com">
+          <div class='list-item'>
+            <h1 class='item-name'>THIS IS MY ITEM NAME</h1>
+            <p class='item-description'>THIS IS MY DESCRIPTION</p>
+          </div>
+        </a>
+      </div>-->
+
+    </div>
+
   </body>
 </html>
