@@ -160,7 +160,7 @@ function css_on_clear(){
   $("#heading").css({"font-size": "3.8em", "top": "", "width": "100%"});
   //$("#button-container").css("width", "500px")
   $("#button-container").css("display", "flex");
-  $("#search-input-container").css("width", "95%");
+  $("#search-input-container").css("width", "90%");
   //$("#submit-button").css("display", "inline");
   $("#button-container").css({"margin-top": "30px", "width": "100%"});
 }
