@@ -171,7 +171,7 @@ $(document).ready(function(){
   if (!hasTouch()) {
     console.log("Not a touch screen, adding hover class!");
     $("body").addClass("HasHover");
-    $("#clear-input").css("padding-top", "8px");
+    $("#clear-input").css("padding-top", "5px");
 
   }
 
