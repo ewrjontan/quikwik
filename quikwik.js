@@ -113,7 +113,7 @@ function css_on_search(){
   //$(".main-container").css("background-color", "yellow");
   $("#heading").css({"font-size": "2em", "top": "25px", "width": "15%"});
 
-  if ($deviceWidth<600){
+  if ($deviceWidth<700){
     $("#button-container").css("display", "none");
     $("#search-input-container").css("width", "85%");
   }else{
