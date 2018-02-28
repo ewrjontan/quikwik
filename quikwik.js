@@ -157,7 +157,7 @@ function css_on_search(){
 function css_on_clear(){
   $searched = false;
   $(".main-container").removeClass("flex");
-  $("#heading").css({"font-size": "4em", "top": "", "width": "100%"});
+  $("#heading").css({"font-size": "3.8em", "top": "", "width": "100%"});
   //$("#button-container").css("width", "500px")
   $("#button-container").css("display", "flex");
   $("#search-input-container").css("width", "95%");
