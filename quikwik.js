@@ -41,9 +41,10 @@ function sendRequest(url, callback){
       }else{
         //console.log("No results");
         $("#list-container").append("<h1 id='no-results'>No Results Found!</h1>");
-        if ($searched){
+
+        /*if ($searched){
           $("#no-results").css("bottom", "40%");
-        }
+        }*/
         
       };
     };
@@ -110,15 +111,14 @@ function css_on_search(){
   $searched = true;
   $(".main-container").addClass("flex");
   //$(".main-container").css("background-color", "yellow");
+  $("#heading").css({"font-size": "2em", "top": "25px", "width": "15%"});
 
   if ($deviceWidth<600){
     $("#button-container").css("display", "none");
-    $("#heading").css({"font-size": "2em", "top": "25px", "width": "20%"});
-    $("#search-input-container").css("width", "80%");
+    $("#search-input-container").css("width", "85%");
   }else{
-    $("#button-container").css("margin-top", "50px");
-    $("#heading").css({"font-size": "2em", "top": "25px", "width": "30%"});
-    $("#search-input-container").css("width", "50%");
+    $("#button-container").css({"margin-top": "50px", "width": "30%"});
+    $("#search-input-container").css("width", "55%");
   }
   //$("#button-container").css("display", "none");
   
@@ -152,7 +152,7 @@ function css_on_clear(){
   $("#button-container").css("display", "flex");
   $("#search-input-container").css("width", "95%");
   //$("#submit-button").css("display", "inline");
-  $("#button-container").css("margin-top", "30px");
+  $("#button-container").css({"margin-top": "30px", "width": "100%"});
 }
 
 //jquery 
