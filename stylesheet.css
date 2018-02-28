@@ -103,7 +103,7 @@ input, textarea {
   position: absolute;
   right: 5px;
   top: 0;
-  padding-top: 6px;
+  padding-top: 5px;
   padding-bottom: 5px;
   color: gray;
   cursor: pointer;
@@ -111,13 +111,6 @@ input, textarea {
   background-color: none;
   margin: auto;
 }
-
-/*.fa-times-circle{
-  color: gray;
-  position: relative;
-  top: 5px;
-  background-color: none;
-}*/
 
 #button-container{
   display: flex;
