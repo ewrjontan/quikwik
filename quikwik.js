@@ -47,7 +47,7 @@ function sendRequest(url, callback){
         callback(responseData);
       }else{
         //console.log("No results");
-        $("#list-container").append("<h1 id='no-results'>No Results Found!</h1>");
+        $("#list-container").append("<p id='no-results'>No Results Found!</p>");
 
         /*if ($searched){
           $("#no-results").css("bottom", "40%");
@@ -121,7 +121,7 @@ function css_on_search(){
   $searched = true;
   $(".main-container").addClass("flex");
   //$(".main-container").css("background-color", "yellow");
-  $("#heading").css({"font-size": "2em", "top": "25px", "width": "15%"});
+  $("#heading").css({"font-size": "1.2em", "top": "25px", "width": "15%"});
 
   if ($deviceWidth<700){
     $("#button-container").css("display", "none");
@@ -157,7 +157,7 @@ function css_on_search(){
 function css_on_clear(){
   $searched = false;
   $(".main-container").removeClass("flex");
-  $("#heading").css({"font-size": "5em", "top": "", "width": "100%"});
+  $("#heading").css({"font-size": "4em", "top": "", "width": "100%"});
   //$("#button-container").css("width", "500px")
   $("#button-container").css("display", "flex");
   $("#search-input-container").css("width", "95%");
