@@ -70,8 +70,8 @@ a:visited {
 }
 
 #search-input{
-  background-color: transparent;
   /*background-color: transparent;*/
+  background-color: blue;
   width: 90%;
   max-width: 500px;
   /*margin-left: 25px;
@@ -86,18 +86,24 @@ a:visited {
   /*font-size: 2.25em;*/
   font-size: 32px;
   position: relative;
+
+  display: inline;
 }
 
 #clear-input{
-  display: none;
+  /*display: none;*/
   position: absolute;
   /*top: -40px;*/
   /*left: 510px;*/
   right: 5px;
-  top: 3px;
+  top:10%;
+  /*top: 3px;*/
   color: gray;
   cursor: pointer;
   font-size: 24px;
+  /*display: inline;
+  vertical-align: bottom;*/
+  background-color: red;
 }
 
 #button-container{
