@@ -1,3 +1,10 @@
+//detect if touch screen
+function hasTouch() {
+    return 'ontouchstart' in document.documentElement
+           || navigator.maxTouchPoints > 0
+           || navigator.msMaxTouchPoints > 0;
+};
+
 
 //get window width
 var $portrait = window.matchMedia("(orientation: portrait)").matches;
@@ -95,8 +102,11 @@ function appendData(arrayInput){
   //hover for list items
   $('.list-item').hover(
     function(){
+      if ($("body").hasClass("HasHover")){
+        $(this).css("background-color", "#f2f2f2");  
+      };
       //console.log("entered element");
-      $(this).css("background-color", "#e6e6e6");
+      
     },
     function(){
       //console.log("left element");
@@ -157,10 +167,21 @@ function css_on_clear(){
 
 //jquery 
 $(document).ready(function(){
+  //adds HasHover class to body to allow for hovering over elements
+  if (!hasTouch()) {
+    console.log("Not a touch screen, adding hover class!");
+    $("body").addClass("HasHover");
+    $("#clear-input").css("padding-top", "8px");
+
+  }
+
   //submit and surprise button hovers
   $(".button").hover(
     function(){
-      $(this).css({"background-color": "#a3c2c2", "border": "1px solid #a3c2c2"});
+      if ($("body").hasClass("HasHover")){
+        $(this).css({"background-color": "#a3c2c2", "border": "1px solid #a3c2c2"});  
+      };
+      
     },
     function(){
       $(this).css({"background-color": "#c2d6d6", "border": "1px solid white"});
