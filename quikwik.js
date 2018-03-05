@@ -82,21 +82,11 @@ function appendData(arrayInput){
   //console.log("this is the array input: " + arrayInput[0].description);
  
   for (i=0; i<arrayInput.length; i++){
-    //var $name = "<h1 class='item-name'>" + arrayInput[i].name; + "</h1>";
-    //var $description = "<p class='item-description'>" + arrayInput[i].description + "</p>";
     var $name = arrayInput[i].name;
     var $description = arrayInput[i].description;
     var $link = arrayInput[i].link;
     
-    
-    //$("#list-container").append("<a class='MainItemContainer' target= '_blank' href=" + $link + "><div class='list-item'>" + $name + $description + "</div></a></div>");
-    
-    //$("#list-container").append("<a class='MainItemContainer' target= '_blank' href=" + $link + "><div class='list-item'>" + "<h1 class='item-name'>THIS IS MY ITEM NAME</h1>" + "<p class='item-description'>THIS IS MY DESCRIPTION</p>" + "</div></a></div>");
-    //$("#list-container").append("<a class='MainItemContainer' target= '_blank' href=" + $link + "><div class='list-item'>" + "<h1 class='item-name'>THIS IS MY ITEM NAME<p class='item-description'>THIS IS MY DESCRIPTION</p></h1>" + "</div></a></div>");
-
     $("#list-container").append("<a class='MainItemContainer' target= '_blank' href=" + $link + "><div class='list-item'><h1 class='item-name'>" + $name + "</h1><p class='item-description'>" + $description + "</p></div></a></div>");
-
-
   }; 
   
   //hover for list items
@@ -104,12 +94,9 @@ function appendData(arrayInput){
     function(){
       if ($("body").hasClass("HasHover")){
         $(this).css("background-color", "#f2f2f2");  
-      };
-      //console.log("entered element");
-      
+      }; 
     },
     function(){
-      //console.log("left element");
       $(this).css("background-color", "white");
   });
   
@@ -120,7 +107,6 @@ function appendData(arrayInput){
 function css_on_search(){
   $searched = true;
   $(".main-container").addClass("flex");
-  //$(".main-container").css("background-color", "yellow");
   $("#heading").css({"font-size": "1.2em", "top": "25px", "width": "15%"});
 
   if ($deviceWidth<700){
@@ -130,38 +116,14 @@ function css_on_search(){
     $("#button-container").css({"margin-top": "50px", "width": "30%"});
     $("#search-input-container").css("width", "55%");
   }
-  //$("#button-container").css("display", "none");
-  
-
-  //$("#button-container").css("margin-top", "50px");
-  //$("#button-container").css("background-color", "red");
-  //$("#button-container").css("width", "20%");
-  //$("#submit-button").css("display", "none");
-  
-  //$("#heading").css("top", "25px");
-  //$("#heading").css("width", "20%");
-  
-
-  /*$("#heading").css("font-size", "2em");
-  $("#heading").css("top", "25px");
-  $("#heading").css("background-color", "red");
-  $("#button-container").css("width", "125px");
-  $("#button-container").css("background-color", "green");
-  $("#button-container").css("margin-top", "50px");
-  $("#submit-button").css("display", "none");
-  $("#surprise-button").css("background-color", "red");
-  $("#surprise-button").css("left", "50px");*/
-  //$("#search-input-container").css("width", "50%");
 };
 
 function css_on_clear(){
   $searched = false;
   $(".main-container").removeClass("flex");
   $("#heading").css({"font-size": "3.8em", "top": "", "width": "100%"});
-  //$("#button-container").css("width", "500px")
   $("#button-container").css("display", "flex");
   $("#search-input-container").css("width", "90%");
-  //$("#submit-button").css("display", "inline");
   $("#button-container").css({"margin-top": "30px", "width": "100%"});
 }
 
@@ -181,7 +143,6 @@ $(document).ready(function(){
       if ($("body").hasClass("HasHover")){
         $(this).css({"background-color": "#a3c2c2", "border": "1px solid #a3c2c2"});  
       };
-      
     },
     function(){
       $(this).css({"background-color": "#c2d6d6", "border": "1px solid white"});
@@ -247,7 +208,7 @@ $(document).ready(function(){
               });
             });
       }else{
-        console.log("no input");
+        //console.log("no input");
       };
       
     };
@@ -257,28 +218,26 @@ $(document).ready(function(){
     //xxxxxxxxxxxxxxxxxx Check Initial Display xxxxxxxxxxxxxxxxxxxxxxxxxxxx
     //check initial orientation
 
-    console.log("Portrait: " + $portrait);
-    console.log("Landscape: " + $landscape);
-    console.log("initial device width: " + $deviceWidth);
-
-
+    //console.log("Portrait: " + $portrait);
+    //console.log("Landscape: " + $landscape);
+    //console.log("initial device width: " + $deviceWidth);
 
   //xxxxxxxxxxxxx Recheck device orientation and reload projects xxxxxxxxxxxxxxxxxxxxxxxx
 
     $(window).resize(function() {
       // This will fire each time the window is resized:
-      console.log("Window has been resized!");
+      //console.log("Window has been resized!");
   
       //Check device width
       $deviceWidth = $(window).width();
-      console.log("new device width: " + $deviceWidth);
+      //console.log("new device width: " + $deviceWidth);
       
       //check new orientation
       $portrait = window.matchMedia("(orientation: portrait)").matches;
       $landscape = window.matchMedia("(orientation: landscape)").matches;
       
-      console.log("New Portrait: " + $portrait);
-      console.log("New Landscape: " + $landscape);
+      //console.log("New Portrait: " + $portrait);
+      //console.log("New Landscape: " + $landscape);
 
       if ($deviceWidth<600 && $searched){
         $("#button-container").css("display", "none");
