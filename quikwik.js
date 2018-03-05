@@ -131,7 +131,7 @@ function css_on_clear(){
 $(document).ready(function(){
   //adds HasHover class to body to allow for hovering over elements
   if (!hasTouch()) {
-    console.log("Not a touch screen, adding hover class!");
+    //console.log("Not a touch screen, adding hover class!");
     $("body").addClass("HasHover");
     $("#clear-input").css("padding-top", "5px");
 
